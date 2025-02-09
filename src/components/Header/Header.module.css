@@ -1,0 +1,21 @@
+.link {
+  color: rgb(48, 5, 5);
+  font-size: 26px;
+  text-decoration: none;
+}
+.active {
+  color: tomato;
+  text-decoration: underline;
+}
+nav {
+  display: flex;
+  gap: 20px;
+}
+.header {
+  display: flex;
+  background-color: rgb(76, 141, 152);
+  padding: 20px;
+  width: 100%;
+  margin: 0;
+  gap: 20px;
+}
