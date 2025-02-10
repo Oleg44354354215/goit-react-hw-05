@@ -1,5 +1,5 @@
 import { useParams, Outlet, NavLink, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fetchMovieDetails } from "../../services/api";
 import clsx from "clsx";
 import s from "./MovieDetailsPage.module.css";
@@ -10,7 +10,7 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
-  const backLink = location.state?.from ?? "/movies";
+  const backLink = useRef(location.state?.from ?? "/movies");
 
   useEffect(() => {
     const getData = async () => {
@@ -29,7 +29,7 @@ const MovieDetailsPage = () => {
   return (
     <div>
       <div className={s.back}>
-        <NavLink to={backLink} className={s.goback}>
+        <NavLink to={backLink.current} className={s.goback}>
           ⬅️ Go back
         </NavLink>
       </div>
